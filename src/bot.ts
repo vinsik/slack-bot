@@ -51,7 +51,12 @@ app.event("app_mention", async ({ event, client }) => {
     const answer = await answerWithFileSearch(q);
 
     await client.chat.postMessage({ channel: event.channel, thread_ts, text: answer });
-    await client.chat.update({ channel: event.channel, ts: ackMsg.ts, text: "Answered ✅" });
+
+    // Guard: only update if ts exists
+    const ackTs = (ackMsg as any).ts as string | undefined;
+    if (ackTs) {
+        await client.chat.update({ channel: event.channel, ts: ackTs, text: "Answered ✅" });
+    }
 });
 
 // Slash command (optional)
