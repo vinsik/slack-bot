@@ -4,7 +4,7 @@
     "api/slack/events.ts": {
       "memory": 512,
       "maxDuration": 10,
-      "runtime": "nodejs18.x"
+      "runtime": "nodejs22.x"
     }
   },
   "routes": [
