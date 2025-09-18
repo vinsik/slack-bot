@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/slack/events.ts": {
+      "memory": 512,
+      "maxDuration": 10
+    }
+  }
+}
